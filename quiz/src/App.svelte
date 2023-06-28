@@ -2,4 +2,6 @@
   import Quiz from './lib/Quiz.svelte';
 </script>
 
-<Quiz />
+<main>
+    <Quiz />
+</main>

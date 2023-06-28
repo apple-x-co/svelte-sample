@@ -8,8 +8,10 @@
 </script>
 
 <div in:fly="{{ y: 200, duration: 500 }}" out:fade>
-    <b>step4</b>
-    <p>Hi, {$answer.nickname}</p>
+    <h2>step4</h2>
+
+    <p>Hi, {$answer.nickname} !!</p>
+
     <p>Q1: {$answer.q1}</p>
     <p>Q2: {$answer.q2}</p>
     <p>Q3: {$answer.q3}</p>
