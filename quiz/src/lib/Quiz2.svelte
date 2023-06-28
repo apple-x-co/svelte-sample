@@ -1,9 +1,9 @@
 <script>
-    import { fade, fly } from 'svelte/transition';
-    import { step, interview1, answer } from './stores.js'
+    import { fade, fly } from 'svelte/transition'
+    import { nextStep, interview1, answer } from './stores.js'
 
     const handleSubmit = () => {
-        step.set(3);
+        nextStep()
     }
 </script>
 
@@ -22,7 +22,7 @@
                         {#each interview.choices as choice}
                             <li>
                                 <label>
-                                    <input type="radio" value="{choice.id}" required bind:group={$answer[interview.name]} />
+                                    <input type="radio" value="{choice.id}" required bind:group={$answer[interview.name]}/>
                                     {choice.text}
                                     {#if choice.src}
                                         <img src="{choice.src}" alt="{choice.text}">

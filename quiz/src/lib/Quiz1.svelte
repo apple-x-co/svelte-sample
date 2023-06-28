@@ -1,9 +1,9 @@
 <script>
-    import { fade, fly } from 'svelte/transition';
-    import { step, answer } from './stores.js';
+    import { fade, fly } from 'svelte/transition'
+    import { nextStep, answer } from './stores.js'
 
     const handleSubmit = () => {
-        step.set(2);
+        nextStep()
     }
 </script>
 
@@ -12,7 +12,7 @@
 
     <form method="post" on:submit|preventDefault="{handleSubmit}">
         <label>
-            Name: <input required minlength="1" maxlength="6" bind:value={$answer.nickname} />
+            Name: <input required minlength="1" maxlength="6" bind:value={$answer.nickname}/>
         </label>
         <button>Next</button>
     </form>

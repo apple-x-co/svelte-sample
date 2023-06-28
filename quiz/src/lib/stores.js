@@ -1,6 +1,14 @@
-import { readable, writable } from 'svelte/store';
+import { readable, writable, get } from 'svelte/store';
 
 export const step = writable(1);
+
+export function nextStep() {
+    if (get(step) > 3) {
+        return;
+    }
+
+    step.set(get(step) + 1);
+}
 
 export const answer = writable({
     nickname: null,
