@@ -1,9 +1,9 @@
 <script>
     import { fade, fly } from 'svelte/transition';
-    import { answer, step } from './stores.js'
+    import { answer, resetAnswer } from './stores.js'
 
     const handleReset = () => {
-        step.set(1);
+        resetAnswer();
     }
 </script>
 

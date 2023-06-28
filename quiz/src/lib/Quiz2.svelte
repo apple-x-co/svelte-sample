@@ -1,6 +1,6 @@
 <script>
     import { fade, fly } from 'svelte/transition';
-    import { answer, step, interview1 } from './stores.js'
+    import { step, interview1, answer } from './stores.js'
 
     const handleSubmit = () => {
         step.set(3);

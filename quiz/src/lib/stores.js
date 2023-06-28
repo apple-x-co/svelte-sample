@@ -12,13 +12,17 @@ export const answer = writable({
     q6: null,
 });
 
-export function updateAnswer(property, value) {
-    answer.update((storeData) => {
-        return {
-            ...storeData,
-            [property]: value
-        };
-    });
+export function resetAnswer() {
+    answer.set({
+        nickname: null,
+        q1: null,
+        q2: null,
+        q3: null,
+        q4: null,
+        q5: null,
+        q6: null,
+    })
+    step.set(1);
 }
 
 export const interview1 = readable([
