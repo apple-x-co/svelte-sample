@@ -1,8 +1,14 @@
-main > div {
-    max-width: 800px;
-    margin: 0 auto;
+.canvas-container, .canvas {
+    display: none;
 }
 
-li {
-    list-style: none;
+.composite, .composite img {
+    width: 100%;
+}
+
+/* temporary styles */
+main > div {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }

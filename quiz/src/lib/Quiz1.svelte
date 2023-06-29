@@ -1,18 +1,21 @@
 <script>
-    import { fade, fly } from 'svelte/transition'
+    import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition'
     import { nextStep, answer } from './stores.js'
+
+    onMount(() => window.scrollTo(0,0));
 
     const handleSubmit = () => {
         nextStep()
     }
 </script>
 
-<div in:fly="{{ y: 200, duration: 500 }}" out:fade>
+<div in:fade>
     <h2>step1</h2>
 
     <form method="post" on:submit|preventDefault="{handleSubmit}">
         <label>
-            <p>ニックネーム</p>
+            ニックネーム
             <input required minlength="1" maxlength="6" bind:value={$answer.nickname}/>
         </label>
         <button>Next</button>

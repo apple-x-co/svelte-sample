@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from 'svelte';
     import { step } from './stores.js'
     import Quiz1 from './Quiz1.svelte'
     import Quiz2 from './Quiz2.svelte'

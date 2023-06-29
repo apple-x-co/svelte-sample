@@ -1,13 +1,16 @@
 <script>
-    import { fade, fly } from 'svelte/transition'
+    import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition'
     import { nextStep, interview1, answer } from './stores.js'
+
+    onMount(() => window.scrollTo(0,0));
 
     const handleSubmit = () => {
         nextStep()
     }
 </script>
 
-<div in:fly="{{ y: 200, duration: 500 }}" out:fade>
+<div in:fade>
     <h2>step2</h2>
 
     <p>Hi, {$answer.nickname} !!</p>
