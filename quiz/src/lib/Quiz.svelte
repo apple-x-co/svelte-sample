@@ -1,11 +1,13 @@
 <script>
-    import { onMount } from 'svelte';
     import { step } from './stores.js'
+    import Preload from './Preload.svelte'
     import Quiz1 from './Quiz1.svelte'
     import Quiz2 from './Quiz2.svelte'
     import Quiz3 from './Quiz3.svelte'
     import Quiz4 from './Quiz4.svelte'
 </script>
+
+<Preload />
 
 {#if $step === 1}
     <Quiz1/>
