@@ -1,4 +1,4 @@
-import { readable, writable } from 'svelte/store';
+import { get, readable, writable } from 'svelte/store'
 
 export const step = writable(1);
 
@@ -33,6 +33,27 @@ export function resetAnswer() {
         q6: null,
     })
     step.set(1);
+}
+
+export const ngWords = readable([
+    'TEST',
+    'DEBUG'
+]);
+
+export function isValidWord(word) {
+    if (word === null) {
+        return true
+    }
+
+    let isValid = true
+
+    get(ngWords).forEach((ngWord) => {
+        if (word.toLowerCase().indexOf(ngWord.toLowerCase()) >= 0) {
+            isValid = false
+        }
+    })
+
+    return isValid
 }
 
 export const interview1 = readable([

@@ -1,24 +1,12 @@
 <script>
     import { onMount } from 'svelte'
     import { fade } from 'svelte/transition'
-    import { nextStep, answer } from './stores.js'
+    import { nextStep, answer, isValidWord } from './stores.js'
 
     onMount(() => window.scrollTo(0, 0))
 
-    const ngWords = ['死']
     let isValid = true
-    answer.subscribe((obj) => {
-        if (obj.nickname === null) {
-            return
-        }
-
-        isValid = true
-        ngWords.forEach((ngWord) => {
-            if (obj.nickname.indexOf(ngWord) >= 0) {
-                isValid = false
-            }
-        })
-    })
+    answer.subscribe((obj) => isValid = isValidWord(obj.nickname))
 
     const handleSubmit = () => {
         if (!isValid) {
@@ -44,9 +32,10 @@
             ニックネーム
             <input required minlength="1" maxlength="6" autofocus bind:value={$answer.nickname}/>
         </label>
-        {#if isValid === false}
+        {#if isValid}
+            <button>Next</button>
+        {:else}
             <p class="error">別のニックネームを入力してください</p>
         {/if}
-        <button>Next</button>
     </form>
 </div>
