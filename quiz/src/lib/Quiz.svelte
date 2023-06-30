@@ -5,18 +5,12 @@
     import Quiz2 from './Quiz2.svelte'
     import Quiz3 from './Quiz3.svelte'
     import Quiz4 from './Quiz4.svelte'
+
+    const components = [Quiz1, Quiz2, Quiz3, Quiz4]
 </script>
 
 <Preload />
 
-{#if $step === 1}
-    <Quiz1/>
-{:else if $step === 2}
-    <Quiz2/>
-{:else if $step === 3}
-    <Quiz3/>
-{:else if $step === 4}
-    <Quiz4/>
-{/if}
+<svelte:component this="{components[$step - 1]}" />
 
 <span style="font-family: 'Rampart One', cursive; display: none;" aria-hidden="true">Rampart One</span>
