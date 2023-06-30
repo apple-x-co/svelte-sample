@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
 
-.canvas-container, .canvas {
+.canvas-container {
     display: none;
-}
-
-.composite, .composite img {
-    width: 100%;
 }
 
 /* temporary styles */

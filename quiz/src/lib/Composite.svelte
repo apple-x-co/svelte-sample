@@ -78,5 +78,15 @@
     }
 </script>
 
+<style>
+    .canvas {
+        display: none;
+    }
+
+    .composite, .composite img {
+        width: 100%;
+    }
+</style>
+
 <canvas id="js-canvas" class="canvas"></canvas>
 <div class="composite"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=" alt="" bind:this="{elem}"/></div>
