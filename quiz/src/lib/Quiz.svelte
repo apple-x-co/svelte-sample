@@ -18,3 +18,5 @@
 {:else if $step === 4}
     <Quiz4/>
 {/if}
+
+<span style="font-family: 'Rampart One', cursive; display: none;" aria-hidden="true">Rampart One</span>
