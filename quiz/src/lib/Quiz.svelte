@@ -13,4 +13,4 @@
 
 <svelte:component this="{components[$step - 1]}" />
 
-<span style="font-family: 'Rampart One', cursive; display: none;" aria-hidden="true">Rampart One</span>
+<span style="font-family: 'Rampart One'; display: inline-block; width: 0; height: 0; opacity: 0;" aria-hidden="true">Rampart One</span>

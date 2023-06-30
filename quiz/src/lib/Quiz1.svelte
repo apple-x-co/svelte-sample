@@ -16,7 +16,7 @@
     <form method="post" on:submit|preventDefault="{handleSubmit}">
         <label>
             ニックネーム
-            <input required minlength="1" maxlength="6" bind:value={$answer.nickname}/>
+            <input required minlength="1" maxlength="6" autofocus bind:value={$answer.nickname}/>
         </label>
         <button>Next</button>
     </form>
