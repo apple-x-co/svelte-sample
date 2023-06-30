@@ -1,9 +1,9 @@
 <script>
-    import { onMount } from 'svelte';
+    import { onMount } from 'svelte'
     import { fade } from 'svelte/transition'
     import { nextStep, interview2, answer } from './stores.js'
 
-    onMount(() => window.scrollTo(0,0));
+    onMount(() => window.scrollTo(0, 0))
 
     const handleSubmit = () => {
         nextStep()

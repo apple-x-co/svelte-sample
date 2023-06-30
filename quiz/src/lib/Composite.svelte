@@ -89,4 +89,6 @@
 </style>
 
 <canvas id="js-canvas" class="canvas"></canvas>
-<div class="composite"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=" alt="" bind:this="{elem}"/></div>
+<div class="composite">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=" alt="" bind:this="{elem}"/>
+</div>

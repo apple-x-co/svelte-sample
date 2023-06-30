@@ -14,7 +14,7 @@
 <div in:fade>
     <h2>step4</h2>
 
-    <Composite />
+    <Composite/>
 
     <button type="button" on:click={handleReset}>Reset</button>
 </div>

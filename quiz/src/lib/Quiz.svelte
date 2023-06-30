@@ -9,8 +9,8 @@
     const components = [Quiz1, Quiz2, Quiz3, Quiz4]
 </script>
 
-<Preload />
+<Preload/>
 
-<svelte:component this="{components[$step - 1]}" />
+<svelte:component this="{components[$step - 1]}"/>
 
 <span style="font-family: 'Rampart One'; display: inline-block; width: 0; height: 0; opacity: 0;" aria-hidden="true">Rampart One</span>
