@@ -1,12 +1,13 @@
 <script>
-    import { onMount } from 'svelte'
+    import { onMount, onDestroy } from 'svelte'
     import { fade } from 'svelte/transition'
     import { nextStep, answer, isValidWord } from './stores.js'
 
     onMount(() => window.scrollTo(0, 0))
 
     let isValid = true
-    answer.subscribe((obj) => isValid = isValidWord(obj.nickname))
+    const unscribe = answer.subscribe((obj) => isValid = isValidWord(obj.nickname))
+    onDestroy(unscribe)
 
     const handleSubmit = () => {
         if (!isValid) {
