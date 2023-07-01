@@ -3,10 +3,9 @@
 </svelte:head>
 
 <script>
-    import { get } from 'svelte/store'
-    import { answer } from './stores.js'
     import bgUrl from '../assets/bg.jpg'
     import logoUrl from '../assets/logo.png'
+    export let answer;
 
     const width = 1200
     const height = 630
@@ -59,9 +58,7 @@
         })
         canvas.add(numberText)
 
-        const answerObj = get(answer)
-
-        const nicknameText = new fabric.Text(answerObj.nickname, {
+        const nicknameText = new fabric.Text(answer.nickname, {
             originX: 'left',
             originY: 'top',
             fill: 'black',
