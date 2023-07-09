@@ -1,12 +1,12 @@
 <script>
     import { step } from './stores.js'
     import Preload from './Preload.svelte'
+    import Nickname from './Nickname.svelte'
     import Quiz1 from './Quiz1.svelte'
     import Quiz2 from './Quiz2.svelte'
-    import Quiz3 from './Quiz3.svelte'
-    import Quiz4 from './Quiz4.svelte'
+    import Finish from './Finish.svelte'
 
-    const components = [Quiz1, Quiz2, Quiz3, Quiz4]
+    const components = [Nickname, Quiz1, Quiz2, Finish]
 </script>
 
 <Preload/>
