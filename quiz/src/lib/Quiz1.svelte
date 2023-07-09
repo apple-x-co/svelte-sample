@@ -2,6 +2,7 @@
     import { onMount, onDestroy } from 'svelte'
     import { fade } from 'svelte/transition'
     import { nextStep, answer, isValidWord } from './stores.js'
+    import Title from './Title.svelte'
 
     onMount(() => window.scrollTo(0, 0))
 
@@ -18,12 +19,7 @@
     }
 </script>
 
-<style>
-    .error {
-        color: red;
-        font-weight: bold;
-    }
-</style>
+<Title title="1/4" />
 
 <div in:fade>
     <h2>step1</h2>
@@ -40,3 +36,10 @@
         {/if}
     </form>
 </div>
+
+<style>
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+</style>

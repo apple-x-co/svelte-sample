@@ -3,6 +3,7 @@
     import { fade } from 'svelte/transition'
     import { answer, resetAnswer } from './stores.js'
     import Composite from './Composite.svelte'
+    import Title from './Title.svelte'
 
     onMount(() => window.scrollTo(0, 0))
 
@@ -10,6 +11,8 @@
         resetAnswer()
     }
 </script>
+
+<Title title="4/4" />
 
 <div in:fade>
     <h2>step4</h2>
