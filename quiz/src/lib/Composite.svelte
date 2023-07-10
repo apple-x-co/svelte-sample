@@ -1,17 +1,14 @@
-<svelte:head>
-    <script src="https://cdn.jsdelivr.net/npm/fabric" on:load={drawCanvas}></script>
-</svelte:head>
-
 <script>
     import bgUrl from '../assets/bg.jpg'
     import logoUrl from '../assets/logo.png'
-    export let answer;
+
+    export let answer
 
     const width = 1200
     const height = 630
-    let elem
+    let img
 
-    const drawCanvas = () => {
+    const drawing = () => {
         const canvas = new fabric.Canvas('js-canvas', {
             backgroundColor: 'transparent',
         })
@@ -31,19 +28,25 @@
         })
         canvas.add(rect)
 
-        fabric.util.loadImage(bgUrl, function (image) {
-            rect.set('fill', new fabric.Pattern({
-                source: image,
-                repeat: 'no-repeat',
-            }))
-            canvas.renderAll()
+        const bgPromise = new Promise((resolve) => {
+            fabric.util.loadImage(bgUrl, function (image) {
+                rect.set('fill', new fabric.Pattern({
+                    source: image,
+                    repeat: 'no-repeat',
+                }))
+                canvas.renderAll()
+                resolve()
+            })
         })
 
-        fabric.Image.fromURL(logoUrl, function (image) {
-            image.set('top', 50)
-            image.set('left', 10)
-            image.selectable = false
-            canvas.add(image)
+        const logoPromise = new Promise((resolve) => {
+            fabric.Image.fromURL(logoUrl, function (image) {
+                image.set('top', 50)
+                image.set('left', 10)
+                image.selectable = false
+                canvas.add(image)
+                resolve()
+            })
         })
 
         const numberText = new fabric.Text('1234567890', {
@@ -71,9 +74,20 @@
         })
         canvas.add(nicknameText)
 
-        setTimeout(() => elem.src = canvas.toDataURL(), 100)
+        Promise.all([bgPromise, logoPromise]).then(() => {
+            img.src = canvas.toDataURL()
+        })
     }
 </script>
+
+<svelte:head>
+    <script src="https://cdn.jsdelivr.net/npm/fabric" on:load={drawing}></script>
+</svelte:head>
+
+<canvas id="js-canvas" class="canvas"></canvas>
+<div class="composite">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=" alt="" bind:this="{img}"/>
+</div>
 
 <style>
     .canvas {
@@ -84,8 +98,3 @@
         width: 100%;
     }
 </style>
-
-<canvas id="js-canvas" class="canvas"></canvas>
-<div class="composite">
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=" alt="" bind:this="{elem}"/>
-</div>
